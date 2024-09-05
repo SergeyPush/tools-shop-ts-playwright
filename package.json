@@ -1,11 +1,12 @@
 {
   "name": "tools-shop-ts-playwright",
   "version": "1.0.0",
-  "description": "",
+  "description": "", 
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
     "test-headed": "npx playwright test --headed",
+    "test-ui": "npx playwright test --grep ui",
     "codegen": "npx playwright codegen https://practicesoftwaretesting.com"
   },
   "keywords": [],
