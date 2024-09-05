@@ -1,19 +1,18 @@
 import { expect, Page } from "@playwright/test";
-import { BASE_URL } from "../config/get-env.config";
 import HomePage from "./home.page";
+import AbstractPage from "./abstract.page";
 
-export class App {
-  baseUrl = BASE_URL;
+export class App extends AbstractPage {
   homePage: HomePage;
 
   constructor(protected page: Page) {
+    super(page);
     this.homePage = new HomePage(page);
   }
 
   async openApp() {
     await this.page.goto(this.baseUrl);
-    await this.page.waitForLoadState();
-    await this.page.waitForLoadState("networkidle");
+    await this.waitForAllResponses();
     await this.checkTitle("Practice Software Testing - Toolshop - v5.0");
   }
 

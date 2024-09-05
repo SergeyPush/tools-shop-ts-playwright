@@ -1,9 +1,13 @@
 import { Page } from "@playwright/test";
-import AbstractPage from "./abstract.page";
 
-class HomePage extends AbstractPage {
-  constructor(public page: Page) {
-    super(page);
+class HomePage {
+  private productList = this.page.locator("a.card");
+  private cardTitle = this.productList.locator(".card-title");
+
+  constructor(public page: Page) {}
+
+  async getAllProductsText() {
+    return this.cardTitle.allInnerTexts();
   }
 }
 

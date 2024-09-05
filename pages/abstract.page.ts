@@ -2,9 +2,9 @@ import { Page } from "@playwright/test";
 import { BASE_URL } from "../config/get-env.config";
 
 class AbstractPage {
-  private baseUrl = BASE_URL;
+  protected baseUrl = BASE_URL;
 
-  constructor(public page: Page) {}
+  constructor(protected page: Page) {}
 
   get getPage() {
     return this.page;

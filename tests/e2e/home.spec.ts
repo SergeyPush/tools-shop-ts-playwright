@@ -7,4 +7,9 @@ test.describe("Home Page Tests", () => {
     const title = await app.getTitle();
     expect(title).toBe(expectedTitle);
   });
+
+  test("Should display all products @ui", async ({ home }) => {
+    const allProducts = await home.getAllProductsText();
+    expect(allProducts.length).toBe(9);
+  });
 });
